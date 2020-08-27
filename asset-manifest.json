@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/breaking-the-bad/static/css/main.ced81294.chunk.css",
+    "main.js": "/breaking-the-bad/static/js/main.78f9f780.chunk.js",
+    "main.js.map": "/breaking-the-bad/static/js/main.78f9f780.chunk.js.map",
+    "runtime-main.js": "/breaking-the-bad/static/js/runtime-main.5124565f.js",
+    "runtime-main.js.map": "/breaking-the-bad/static/js/runtime-main.5124565f.js.map",
+    "static/js/2.791a7e21.chunk.js": "/breaking-the-bad/static/js/2.791a7e21.chunk.js",
+    "static/js/2.791a7e21.chunk.js.map": "/breaking-the-bad/static/js/2.791a7e21.chunk.js.map",
+    "index.html": "/breaking-the-bad/index.html",
+    "precache-manifest.9dde948b436a065a8231609461262757.js": "/breaking-the-bad/precache-manifest.9dde948b436a065a8231609461262757.js",
+    "service-worker.js": "/breaking-the-bad/service-worker.js",
+    "static/css/main.ced81294.chunk.css.map": "/breaking-the-bad/static/css/main.ced81294.chunk.css.map",
+    "static/js/2.791a7e21.chunk.js.LICENSE.txt": "/breaking-the-bad/static/js/2.791a7e21.chunk.js.LICENSE.txt",
+    "static/media/breaking-bad-bg-img.jpg": "/breaking-the-bad/static/media/breaking-bad-bg-img.5c9ea4a7.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5124565f.js",
+    "static/js/2.791a7e21.chunk.js",
+    "static/css/main.ced81294.chunk.css",
+    "static/js/main.78f9f780.chunk.js"
+  ]
+}
