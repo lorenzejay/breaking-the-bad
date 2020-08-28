@@ -30,7 +30,7 @@ function SearchChar() {
           type="name"
           value={searchChar.char}
         />
-        <button onClick={handleClick}>Seach</button>
+        <button onClick={handleClick}>Search</button>
       </form>
       <Character character={searchedCharContainer} />
     </div>
