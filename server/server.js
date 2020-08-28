@@ -1,5 +1,3 @@
-const { default: Axios } = require('axios');
-
 const express = require('express'),
       app     = express(),
       axios   = require('axios');
@@ -9,7 +7,7 @@ app.get('/import', async (req, res) => {
   const response = await axios.get('https://www.breakingbadapi.com/api/characters');
   data = response.data
 
-  //Write character data to our database.
+  //Write character data to our database eventually.
   for(character of data){
     console.log(character.name);
   }
