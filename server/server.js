@@ -4,7 +4,6 @@ const express = require('express'), // This is the main package you use with nod
       mongoose = require('mongoose'); // MongoDB communicator package
 
 const Character = require('./models/Character'); // Schema(structure) for Characters
-const { createIndexes } = require('./models/Character');
 
 require('dotenv').config(); // Packaged used to store process.env variables
 
