@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-const express = require("express"),
-  app = express(),
-  axios = require("axios");
-=======
 const express = require('express'), // This is the main package you use with node.
       app     = express(), // Standard convention to use 'app' for express.
       axios   = require('axios'), // HTTP Request Package.
@@ -25,19 +20,9 @@ mongoose.connect(process.env.DATABASEURL , {
 }).catch(err => {
   console.log('ERROR:', err.message);
 });
->>>>>>> bf6c7528574908d123b11b9459da2b54b2b950ad
 
 app.get("/import", async (req, res) => {
   // Axios call to get API data on all characters
-<<<<<<< HEAD
-  const response = await axios.get("https://www.breakingbadapi.com/api/characters");
-  data = response.data;
-  console.log(data);
-
-  //Write character data to our database eventually.
-  for (character of data) {
-    console.log(character.name);
-=======
   const response = await axios.get('https://www.breakingbadapi.com/api/characters');
   const data = response.data
   console.log(data);
@@ -46,6 +31,7 @@ app.get("/import", async (req, res) => {
   const saveData = (character) => {
     const newCharacter = {
       name: character.name,
+      nickname: character.nickname,
       power: (character.appearance.length * 10) + (Math.floor(Math.random() * 10 + 1)),
       defense: Math.floor((character.appearance.length * 10) + (Math.floor(Math.random() * 10 + 1)) / 2),
       img: character.img,
@@ -59,7 +45,6 @@ app.get("/import", async (req, res) => {
         console.log('Characters Created!');
       }
     });
->>>>>>> bf6c7528574908d123b11b9459da2b54b2b950ad
   }
 
   for(character of data){
@@ -70,15 +55,6 @@ app.get("/import", async (req, res) => {
   res.end();
 });
 
-<<<<<<< HEAD
-app.listen(process.env.PORT || 3000, () => {
-  if (process.env.PORT) {
-    console.log(`Server is running on ${process.env.PORT}`);
-  } else {
-    console.log(`Server is running on PORT 3000`);
-  }
-});
-=======
 app.get('/characters', (req, res) => {
   Character.find({}, (err, foundCharacters) => {
     if(err){
@@ -92,4 +68,3 @@ app.get('/characters', (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on ${process.env.PORT}`);
 });
->>>>>>> bf6c7528574908d123b11b9459da2b54b2b950ad
