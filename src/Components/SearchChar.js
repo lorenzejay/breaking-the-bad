@@ -1,25 +1,39 @@
 import React, { useState } from "react";
 import Character from "./Character";
+import CharacterCard from "./CharacterCard";
 
-function SearchChar() {
-  const [searchChar, setSearchChar] = useState({ char: "", key: "" });
-  const [searchedCharContainer, setSearchedCharContainer] = useState([]);
+function SearchChar(props) {
+  const [searchChar, setSearchChar] = useState("");
+  const [searchedCharContainer, setSearchedCharContainer] = useState("");
+  const [randomChar, setRandomChar] = useState(
+    props.data[Math.floor(Math.random() * props.data.length)]
+  );
+  const [showThisCharacter, setshowThisCharacter] = useState();
 
   const handleChange = (e) => {
-    setSearchChar({ ...searchChar, char: e.target.value, key: Date.now() });
+    setSearchChar(e.target.value);
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     const character = searchChar;
     if (character !== "") {
-      setSearchedCharContainer([...searchedCharContainer, character]);
+      setSearchedCharContainer(character);
     }
-    setSearchChar({ char: "", key: "" });
+    setSearchChar("");
   };
 
-  console.log(searchChar);
-  console.log(searchedCharContainer);
+  const showRandom = (e) => {
+    e.preventDefault();
+    console.log("showing random");
+    setRandomChar(Math.floor(Math.random() * props.data.length));
+    setshowThisCharacter(props.data[randomChar]);
+    if (showThisCharacter === undefined) {
+      setshowThisCharacter(props.data[0]);
+    }
+  };
+
+  console.log(showThisCharacter);
 
   return (
     <div>
@@ -28,11 +42,16 @@ function SearchChar() {
           placeholder="Find the Baddest of the Bad"
           onChange={handleChange}
           type="name"
-          value={searchChar.char}
+          value={searchChar || ""}
         />
         <button onClick={handleClick}>Search</button>
+        <button onClick={showRandom}>Random</button>
       </form>
-      <Character character={searchedCharContainer} />
+      <CharacterCard
+        data={props.data}
+        character={searchedCharContainer}
+        randomCharacter={showThisCharacter}
+      />
     </div>
   );
 }
