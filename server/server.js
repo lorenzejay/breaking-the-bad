@@ -1,11 +1,14 @@
 const express = require('express'), // This is the main package you use with node.
       app     = express(), // Standard convention to use 'app' for express.
       axios   = require('axios'), // HTTP Request Package.
-      mongoose = require('mongoose'); // MongoDB communicator package
+      mongoose = require('mongoose'), // MongoDB communicator package
+      cors     = require('cors'); // Cross origin functionality
 
 const Character = require('./models/Character'); // Schema(structure) for Characters
 
+//Server Config
 require('dotenv').config(); // Packaged used to store process.env variables
+app.use(cors());
 
 mongoose.connect(process.env.DATABASEURL , { 
   // Main connect function to connect to DB
@@ -21,7 +24,7 @@ mongoose.connect(process.env.DATABASEURL , {
 app.get('/import', async (req, res) => {
   // Axios call to get API data on all characters
   const response = await axios.get('https://www.breakingbadapi.com/api/characters');
-  data = response.data
+  const data = response.data
   console.log(data);
 
   //Write character data to our database eventually.
@@ -48,7 +51,6 @@ app.get('/import', async (req, res) => {
       saveData(character)
     }
   };
-
   res.end();
 });
 

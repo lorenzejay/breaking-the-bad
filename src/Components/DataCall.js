@@ -8,8 +8,9 @@ class DataCall extends Component{
   }
 
   async getInfo(){
-    const res = await axios.get('https://www.breakingbadapi.com/api/characters')
-    console.log(res.data);
+    const res = await axios.get('http://localhost:3008/characters');
+    const characters = res.data;
+    console.log(characters); // Here is the array of Characters from the Backend.
   }
 
   componentDidMount(){
